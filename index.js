@@ -1,17 +1,88 @@
 // 1. Write a function that takes an array of numbers and returns the largest number in the array.
-function largestNumber(array) {}
+function largestNumber(array) {
+  let num = 0;
+  for (let i = 0; i < array.length; i++){
+    if (array[i] >= num){
+      num = array[i];
+    }
+  }
+  return num;
+}
+
+const array = [1, 141, 23, 10, 9, 92];
+console.log(largestNumber(array));
 
 // 2. Write a function that takes a string and returns the number of vowels in the string.
-function numberOfVowels(string) {}
+const vowels = ['a', 'e', 'i', 'o', 'u']
+
+function numberOfVowels(string) {
+  let count = 0;
+  for (let i of string.toLowerCase()) {
+    if (vowels.includes(i)) { //includes() returns true if a string includes a vowel and count plus
+      count++
+    }
+  }
+return count;
+}
+
+const string = ("It was a nice day!");
+console.log(numberOfVowels(string));
 
 // 3. Write a function that takes two arrays of numbers and returns a new array with all the elements from both arrays, without any duplicates.
-function combineArrays(array1, array2) {}
+const array1 = ["dog", "cat", "bird", "cat"];
+const array2 = ["cat", "duck"];
 
-// 4. Write a function that takes an array of numbers and returns a new array with all the odd numbers in the original array.
-function oddNumbers(array) {}
+function combineArrays(array1, array2) { 
+
+const result = []
+for (let i = 0; i < array1.length; i++) {
+  if (result.indexOf(array1[i]) == -1) result.push(array1[i]) //index() checks if in the result array the object is not present it will remembers it
+}                                                             //pushes it to the result array https://www.youtube.com/watch?v=dvPybpgk5Y4&ab_channel=InterviewNest
+for (let i = 0; i < array2.length; i++) {
+  if (result.indexOf(array2[i]) == -1) result.push(array2[i])
+}
+  return result;
+}
+
+
+console.log(combineArrays(array1, array2));
+
+// 4. Write a function that takes an array of numbers and returns a new array with all the odd numbers in the original array
+const num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function oddNumbers(array) {
+  const odds = [];
+
+  array.forEach(i => {
+    if (i % 2 !== 0) {
+      odds.push(i);
+    }
+  });
+
+  return odds;
+}
+
+const result = oddNumbers(num);
+console.log(result);
+
 
 // 5. Write a function that takes an array of numbers and returns an array with all the even numbers in the original array.
-function evenNumbers(array) {}
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function evenNumbers(array) {
+  const even = [];
+
+  array.forEach(i => {
+    if (i % 2 === 0) {
+      even.push(i);
+    }
+  });
+
+  return even;
+}
+
+const final = evenNumbers(numbers);
+console.log(final);
 
 // 6. Write a function that takes two strings and returns a string that contains the characters that appear in both strings.
 function commonCharacters(string1, string2) {}
